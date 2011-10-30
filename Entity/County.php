@@ -12,6 +12,12 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class County
 {
+    /**                                                                         
+     * @ORM\ManyToOne(targetEntity="State", inversedBy="counties")
+     * @ORM\JoinColumn(name="state_id", referencedColumnName="id"))
+     */                                                                         
+     protected $state;
+
     /**
      * @var integer $id
      *
@@ -84,5 +90,25 @@ class County
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Set state
+     *
+     * @param Meynell\GeographicalBundle\Entity\State $state
+     */
+    public function setState(\Meynell\GeographicalBundle\Entity\State $state)
+    {
+        $this->state = $state;
+    }
+
+    /**
+     * Get state
+     *
+     * @return Meynell\GeographicalBundle\Entity\State 
+     */
+    public function getState()
+    {
+        return $this->state;
     }
 }

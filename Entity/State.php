@@ -3,6 +3,7 @@
 namespace Meynell\GeographicalBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Meynell\GeographicalBundle\Entity\State
@@ -12,6 +13,22 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class State
 {
+    /**                                                                         
+     * @ORM\ManyToOne(targetEntity="Country", inversedBy="states")
+     * @ORM\JoinColumn(name="country_id", referencedColumnName="id"))
+     */                                                                         
+     protected $country;
+
+    /**
+     * @ORM\OneToMany(targetEntity="County", mappedBy="state")
+     */                                                                            
+     protected $counties;
+                                                                                   
+     public function __construct()                                                 
+     {                                                                             
+         $this->counties = new ArrayCollection();
+     } 
+
     /**
      * @var integer $id
      *
@@ -84,5 +101,45 @@ class State
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Set country
+     *
+     * @param Meynell\GeographicalBundle\Entity\Country $country
+     */
+    public function setCountry(\Meynell\GeographicalBundle\Entity\Country $country)
+    {
+        $this->country = $country;
+    }
+
+    /**
+     * Get country
+     *
+     * @return Meynell\GeographicalBundle\Entity\Country 
+     */
+    public function getCountry()
+    {
+        return $this->country;
+    }
+
+    /**
+     * Add counties
+     *
+     * @param Meynell\GeographicalBundle\Entity\County $counties
+     */
+    public function addCounty(\Meynell\GeographicalBundle\Entity\County $counties)
+    {
+        $this->counties[] = $counties;
+    }
+
+    /**
+     * Get counties
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getCounties()
+    {
+        return $this->counties;
     }
 }

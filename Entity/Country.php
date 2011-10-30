@@ -3,6 +3,7 @@
 namespace Meynell\GeographicalBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Meynell\GeographicalBundle\Entity\Country
@@ -12,6 +13,16 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Country
 {
+    /**
+     * @ORM\OneToMany(targetEntity="State", mappedBy="country")
+     */                                                                            
+     protected $states;
+                                                                                   
+     public function __construct()                                                 
+     {                                                                             
+         $this->states = new ArrayCollection();
+     } 
+
     /**
      * @var integer $id
      *
@@ -57,5 +68,25 @@ class Country
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Add states
+     *
+     * @param Meynell\GeographicalBundle\Entity\State $states
+     */
+    public function addState(\Meynell\GeographicalBundle\Entity\State $states)
+    {
+        $this->states[] = $states;
+    }
+
+    /**
+     * Get states
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getStates()
+    {
+        return $this->states;
     }
 }
