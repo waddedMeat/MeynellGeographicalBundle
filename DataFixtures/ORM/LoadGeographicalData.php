@@ -27,6 +27,30 @@ class LoadBotData implements FixtureInterface
         $county->setName('Orange');
         $manager->persist($county);
         $manager->flush();
+
+        $county = new County();
+        $county->setStateId($state->getId());
+        $county->setName('Seminole');
+        $manager->persist($county);
+        $manager->flush();
+
+        $county = new County();
+        $county->setStateId($state->getId());
+        $county->setName('Hillsborough');
+        $manager->persist($county);
+        $manager->flush();
+
+        $county = new County();
+        $county->setStateId($state->getId());
+        $county->setName('Osceola');
+        $manager->persist($county);
+        $manager->flush();
+
+        $county = new County();
+        $county->setStateId($state->getId());
+        $county->setName('Polk');
+        $manager->persist($county);
+        $manager->flush();
     }
 }
 
