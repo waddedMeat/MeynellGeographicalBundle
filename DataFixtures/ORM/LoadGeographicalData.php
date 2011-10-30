@@ -2,12 +2,13 @@
 
 namespace Meynell\GeographicalBundle\DataFixtures\ORM;
 
-use Doctrine\Common\DataFixtures\FixtureInterface;
+use Doctrine\Common\DataFixtures\AbstractFixture;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Meynell\GeographicalBundle\Entity\Country;
 use Meynell\GeographicalBundle\Entity\State;
 use Meynell\GeographicalBundle\Entity\County;
 
-class LoadBotData implements FixtureInterface
+class LoadGeographicalData extends AbstractFixture implements OrderedFixtureInterface
 {
     public function load($manager)
     {
@@ -51,6 +52,11 @@ class LoadBotData implements FixtureInterface
         $county->setName('Polk');
         $manager->persist($county);
         $manager->flush();
+    }
+
+    public function getOrder()
+    {
+        return 1;
     }
 }
 
