@@ -18,38 +18,44 @@ class LoadGeographicalData extends AbstractFixture implements OrderedFixtureInte
         $manager->flush();
 
         $state = new State();
-        $state->setCountryId($country->getId());
+        $state->setCountry($country);
         $state->setName('Florida');
         $manager->persist($state);
         $manager->flush();
 
         $county = new County();
-        $county->setStateId($state->getId());
+        $county->setState($state);
         $county->setName('Orange');
         $manager->persist($county);
         $manager->flush();
 
         $county = new County();
-        $county->setStateId($state->getId());
+        $county->setState($state);
         $county->setName('Seminole');
         $manager->persist($county);
         $manager->flush();
 
         $county = new County();
-        $county->setStateId($state->getId());
+        $county->setState($state);
         $county->setName('Hillsborough');
         $manager->persist($county);
         $manager->flush();
 
         $county = new County();
-        $county->setStateId($state->getId());
+        $county->setState($state);
         $county->setName('Osceola');
         $manager->persist($county);
         $manager->flush();
 
         $county = new County();
-        $county->setStateId($state->getId());
+        $county->setState($state);
         $county->setName('Polk');
+        $manager->persist($county);
+        $manager->flush();
+
+        $county = new County();
+        $county->setState($state);
+        $county->setName('Pinellas');
         $manager->persist($county);
         $manager->flush();
     }
