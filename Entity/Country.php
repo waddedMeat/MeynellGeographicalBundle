@@ -8,7 +8,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 /**
  * Meynell\GeographicalBundle\Entity\Country
  *
- * @ORM\Table(name="countries")
+ * @ORM\Table(name="country")
  * @ORM\Entity
  */
 class Country

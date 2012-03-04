@@ -8,13 +8,13 @@ use Doctrine\Common\Collections\ArrayCollection;
 /**
  * Meynell\GeographicalBundle\Entity\State
  *
- * @ORM\Table(name="states")
+ * @ORM\Table(name="state")
  * @ORM\Entity
  */
 class State
 {
     /**                                                                         
-     * @ORM\ManyToOne(targetEntity="Country", inversedBy="states")
+     * @ORM\ManyToOne(targetEntity="Country", inversedBy="state")
      * @ORM\JoinColumn(name="country_id", referencedColumnName="id"))
      */                                                                         
      protected $country;
