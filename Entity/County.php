@@ -7,13 +7,13 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Meynell\GeographicalBundle\Entity\County
  *
- * @ORM\Table(name="counties")
+ * @ORM\Table(name="county")
  * @ORM\Entity
  */
 class County
 {
     /**                                                                         
-     * @ORM\ManyToOne(targetEntity="State", inversedBy="counties")
+     * @ORM\ManyToOne(targetEntity="State", inversedBy="county")
      * @ORM\JoinColumn(name="state_id", referencedColumnName="id"))
      */                                                                         
      protected $state;
