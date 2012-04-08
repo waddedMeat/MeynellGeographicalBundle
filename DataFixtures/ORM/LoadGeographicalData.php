@@ -4,13 +4,14 @@ namespace Meynell\GeographicalBundle\DataFixtures\ORM;
 
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
+use Doctrine\Common\Persistence\ObjectManager;
 use Meynell\GeographicalBundle\Entity\Country;
 use Meynell\GeographicalBundle\Entity\State;
 use Meynell\GeographicalBundle\Entity\County;
 
 class LoadGeographicalData extends AbstractFixture implements OrderedFixtureInterface
 {
-    public function load($manager)
+    public function load(ObjectManager $manager)
     {
         $country = new Country();
         $country->setName('United States');
