@@ -14,7 +14,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 class State
 {
     /**                                                                         
-     * @ORM\ManyToOne(targetEntity="Country", inversedBy="state")
+     * @ORM\ManyToOne(targetEntity="Country", inversedBy="states")
      * @ORM\JoinColumn(name="country_id", referencedColumnName="id"))
      */                                                                         
      protected $country;

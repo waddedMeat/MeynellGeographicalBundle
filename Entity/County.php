@@ -13,9 +13,9 @@ use Doctrine\ORM\Mapping as ORM;
 class County
 {
     /**                                                                         
-     * @ORM\ManyToOne(targetEntity="State", inversedBy="county")
+     * @ORM\ManyToOne(targetEntity="State", inversedBy="counties")
      * @ORM\JoinColumn(name="state_id", referencedColumnName="id"))
-     */                                                                         
+     */
      protected $state;
 
     /**
